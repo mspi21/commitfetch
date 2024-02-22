@@ -62,10 +62,15 @@ def fetch_commits_params(url):
 
 	commits_page = list(map(transform, response.json()))
 	next = find(lambda link: 'rel="next"' in link, links)
+	last = find(lambda link: 'rel="last"' in link, links)
 
 	if next is not None:
 		next = next.split(';')[0].strip('<> ')
 		print(f'[info] Advancing to next page {next}')
+
+		if last is not None:
+			last = last.split(';')[0].strip('<> ')
+			print(f'[info] Last page is {last}')
 
 	return commits_page, next
 
