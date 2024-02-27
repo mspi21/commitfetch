@@ -1,6 +1,6 @@
 # commitfetch
 
-get metadata for all commits in a GitHub repository
+get metadata for all commits / pull requests in a GitHub repository
 
 ### Prerequisites
 - python 3 + venv module (`python3.11-venv` on Ubuntu 23)
@@ -20,5 +20,6 @@ echo "GITHUB_ACCESS_TOKEN=<insert_your_token_here>" >> .env
 .pyenv/bin/python commitsfetch.py
 
 # For example:
-.pyenv/bin/python commitsfetch.py gpg/libgcrypt commits_libgcrypt.json
+.pyenv/bin/python commitsfetch.py -c gpg/libgcrypt commits_libgcrypt.json
+.pyenv/bin/python commitsfetch.py -p pyca/cryptography pulls_cryptography.json
 ```
