@@ -60,13 +60,18 @@ def fetch_commits_params(url):
 		}
 	)
 
+	response.raise_for_status()
+
 	rl_limit = int(response.headers["X-RateLimit-Limit"])
 	rl_remaining = int(response.headers["X-RateLimit-Remaining"])
 	rl_reset = int(response.headers["X-RateLimit-Reset"])
 	tc_now = int(datetime.now().timestamp())
 	
-	links = response.headers["Link"].split(',')
-		
+	try:
+		links = response.headers["Link"].split(',')
+	except:
+		links = []
+
 	print(f'[info] Current rate limit: {rl_limit}')
 	print(f'[info] Remaining requests: {rl_remaining}')
 	print(f'[info] Rate limit will reset in {timedelta(seconds = rl_reset - tc_now)}')
@@ -113,6 +118,8 @@ def fetch_prs_params(url):
 		params={ 'state': 'all', 'per_page': 500 },
 		headers={ 'Authorization': f'Bearer {gh_access_token}' }
 	)
+
+	response.raise_for_status()
 
 	rl_limit = int(response.headers["X-RateLimit-Limit"])
 	rl_remaining = int(response.headers["X-RateLimit-Remaining"])
