@@ -7,7 +7,7 @@ from sys import argv
 
 
 def print_usage_and_exit(code):
-    print(f'Usage: {argv[0]} <OPTION> <"keywords"> <"labels"> <repository id (AUTHOR/REPO)> <outfile>')
+    print(f'Usage: {argv[0]} <OPTION> ["keywords"] ["labels"] <repository id (AUTHOR/REPO)> <outfile>')
     print('	OPTIONS (mut.ex.):')
     print('		-c: fetch commits')
     print('		-p: fetch pull requests')

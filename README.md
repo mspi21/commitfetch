@@ -1,6 +1,6 @@
 # commitfetch
 
-get metadata for all commits / pull requests in a GitHub repository
+Get metadata for all commits, pull requests or issues in a GitHub repository.
 
 ### Prerequisites
 - python 3 + venv module (`python3.11-venv` on Ubuntu 23)
